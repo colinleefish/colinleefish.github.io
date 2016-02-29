@@ -1,0 +1,21 @@
+# Site settings
+title: "Virginia Jean"
+logo: logo.png # image from https://www.flickr.com/photos/lwr/5496279831/in/set-72157594159055823
+email: colinleefish@gmail.com
+description: > # this means to ignore newlines until "url:"
+  在电影《一切尽失》中，“Virginia Jean”是主人公赖以生存的船。
+url: "http://colinleefish.github.io" # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /blog/
+# twitter_username:
+# github_username:  jekyll
+
+permalink: pretty
+paginate: 5
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+gems:
+  - jekyll-sitemap
+  - jekyll-paginate
