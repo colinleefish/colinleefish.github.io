@@ -10,6 +10,14 @@ body_class: page_template
 </div>
 {% endif %}
 
+{% if site.unsplash_source %}
+<div id="feature_image">
+  <div class="inner" style="background-image: url('{{ site.unsplash_source }}')">
+    <img src='{{ site.unsplash_source }}'>
+    </div>
+</div>
+{% endif %}
+
 <article role="main" class="{% if page.image %}image{% endif %}">
   <header>
     <a href="{{ site.baseurl }}/" id="home_link">«</a>
@@ -21,4 +29,3 @@ body_class: page_template
   </div>
   {% include footer.html %}
 </article>
-

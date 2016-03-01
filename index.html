@@ -18,6 +18,14 @@ body_class: "home-template user"
             </div>
           {% endif %}
 
+          {% if site.unsplash_source %}
+            <div class="image-holder show">
+              <a href="{{ post.url | prepend: site.baseurl }}" class="inner" style="background-image: url('{{ site.unsplash_source }}');">
+                <img src="{{ site.unsplash_source }}">
+              </a>
+            </div>
+          {% endif %}
+
           <div class="meta">
             <time datetime="{{ post.date | date: '%Y-%m-%d' }}">
               <a href="{{ post.url | prepend: site.baseurl }}">{{ post.date | date: "%B %-d, %Y" }}</a>
@@ -30,7 +38,7 @@ body_class: "home-template user"
 
           <div class="text">
               <p>{{ post.excerpt }}</p>
-              <a href="{{ post.url | prepend: site.baseurl }}" class="readmore">Continue Reading</a>
+              <a href="{{ post.url | prepend: site.baseurl }}" class="readmore">继续阅读 > </a>
           </div>
       </article>
       {% endfor %}

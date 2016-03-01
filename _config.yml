@@ -3,11 +3,17 @@ title: "Virginia Jean"
 logo: logo.png # image from https://www.flickr.com/photos/lwr/5496279831/in/set-72157594159055823
 email: colinleefish@gmail.com
 description: > # this means to ignore newlines until "url:"
-  在电影《一切尽失》中，“Virginia Jean”是主人公赖以生存的船。
+  李广慧是一位Linux系统管理员，毕业于东北财经大学，文学学士。现居上海，供职于德邦物流。
+  “Virginia Jean”是他的技术博客，记录Linux、Python等等IT方面的学习内容。
+  博客名源于电影《一切尽失》，是主人公赖以生存的小船。
 url: "http://colinleefish.github.io" # the base hostname & protocol for your site
 baseurl: "" # the subpath of your site, e.g. /blog/
-# twitter_username:
-# github_username:  jekyll
+
+# The author's (or owner's) name. Will show in footer.
+author:  李广慧
+
+# Random Unsplash Pics
+unsplash_source: "https://source.unsplash.com/random"
 
 permalink: pretty
 paginate: 5
