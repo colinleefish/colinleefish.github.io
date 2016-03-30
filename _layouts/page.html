@@ -8,9 +8,7 @@ body_class: page_template
     <img src='/content/images/{{ page.image }}'>
     </div>
 </div>
-{% endif %}
-
-{% if site.unsplash_source %}
+{% elsif site.unsplash_source %}
 <div id="feature_image">
   <div class="inner" style="background-image: url('{{ site.unsplash_source }}')">
     <img src='{{ site.unsplash_source }}'>
