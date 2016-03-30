@@ -415,6 +415,11 @@ article #home_link:hover {
     color: #21272d;
     background-color: #ededee
 }
+
+article #disqus_thread {
+  padding-top: 80px;
+  padding-bottom: 80px
+}
 article time, article time a {
     color: #a4adb6;
     text-rendering: optimizeLegibility

@@ -1,6 +1,6 @@
 # Site settings
 title: "Virginia Jean"
-logo: logo.png # image from https://www.flickr.com/photos/lwr/5496279831/in/set-72157594159055823
+logo: logo-V.png # image from https://www.flickr.com/photos/lwr/5496279831/in/set-72157594159055823
 email: colinleefish@gmail.com
 description: > # this means to ignore newlines until "url:"
   李广慧是一位Linux系统管理员，毕业于东北财经大学，文学学士。现居上海，供职于德邦物流。
@@ -15,7 +15,7 @@ author:  李广慧
 # Random Unsplash Pics
 unsplash_source: "https://unsplash.it/1920/1080?image="
 
-permalink: /:title.html
+permalink: date
 paginate: 5
 
 # Build settings
