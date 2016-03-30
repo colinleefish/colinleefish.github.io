@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "PAM 笔记（一）：PAM 简介"
-tags: test
+tags: Linux, PAM, Authentication
+unsplash_source_number: 1
+excerpt: 本系列讲解了 Linux-PAM 的工作机制和配置文件。本文是该系列的第一篇：《PAM 简介》。主要介绍了 “PAM 是什么”、“解决了什么问题”以及它在Linux系统中的存在形式。
 ---
 
 本系列讲解了 Linux-PAM 的工作机制和配置文件，并利用几个 Linux-PAM 模块做一些有趣的小实验。附录中介绍了一些常用的 Linux-PAM 模块。

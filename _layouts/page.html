@@ -2,21 +2,15 @@
 layout: default
 body_class: page_template
 ---
-{% if page.image %}
+{% if page.unsplash_source_number %}
 <div id="feature_image">
-  <div class="inner" style="background-image: url('/content/images/{{ page.image }}')">
-    <img src='/content/images/{{ page.image }}'>
-    </div>
-</div>
-{% elsif site.unsplash_source %}
-<div id="feature_image">
-  <div class="inner" style="background-image: url('{{ site.unsplash_source }}')">
-    <img src='{{ site.unsplash_source }}'>
+  <div class="inner" style="background-image: url(' {{ site.unsplash_source }}{{ page.unsplash_source_number }}')">
+    <img src='{{ site.unsplash_source }}{{ page.unsplash_source_number }}'>
     </div>
 </div>
 {% endif %}
 
-<article role="main" class="{% if page.image %}image{% endif %}">
+<article role="main" class="{% if page.unsplash_source_number %}image{% endif %}">
   <header>
     <a href="{{ site.baseurl }}/" id="home_link">«</a>
     <h1>{{ page.title }}</h1>

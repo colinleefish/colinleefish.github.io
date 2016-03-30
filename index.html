@@ -10,16 +10,10 @@ body_class: "home-template user"
       {% for post in paginator.posts %}
       <article class="{%comment%}post_class{%endcomment%}">
 
-          {% if post.image %}
+          {% if post.unsplash_source_number %}
               <div class="image-holder show">
-                <a href="{{ post.url | prepend: site.baseurl }}" class="inner" style="background-image: url('{{ site.baseurl }}/content/images/{{ post.image }}');">
-                  <img src="{{ site.baseurl }}/content/images/{{ post.image }}">
-              </a>
-            </div>
-          {% elsif site.unsplash_source %}
-            <div class="image-holder show">
-              <a href="{{ post.url | prepend: site.baseurl }}" class="inner" style="background-image: url('{{ site.unsplash_source }}');">
-                <img src="{{ site.unsplash_source }}">
+                <a href="{{ post.url | prepend: site.baseurl }}" class="inner" style="background-image: url(' {{ site.unsplash_source }}{{ post.unsplash_source_number }}');">
+                  <img src="{{ site.unsplash_source }}{{ post.unsplash_source_number }}">
               </a>
             </div>
           {% endif %}

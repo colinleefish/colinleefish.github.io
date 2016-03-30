@@ -1,22 +1,17 @@
 ---
 layout: default
 body_class: post-template
+
 ---
-{% if page.image %}
+{% if page.unsplash_source_number %}
 <div id="feature_image">
-  <div class="inner" style="background-image: url('{{ site.baseurl }}/content/images//{{ page.image }}')">
-    <img src='{{ site.baseurl }}/content/images/{{ page.image }}'>
-    </div>
-</div>
-{% elsif site.unsplash_source %}
-<div id="feature_image">
-  <div class="inner" style="background-image: url('{{ site.unsplash_source }}')">
-    <img src='{{ site.unsplash_source }}'>
+  <div class="inner" style="background-image: url(' {{ site.unsplash_source }}{{ page.unsplash_source_number }}')">
+    <img src='{{ site.unsplash_source }}{{ page.unsplash_source_number }}'>
     </div>
 </div>
 {% endif %}
 
-<article role="main" class="{% if page.image %}image{% endif %}">
+<article role="main" class="{% if post.unsplash_source_number %}image{% endif %}">
     <header>
       <a href="{{ site.baseurl }}/" id="home_link">«</a>
       <div class="meta"><time datetime="{{ page.date | date:'%Y-%m-%d' }}"><a href="{{ page.url }}">{{ page.date | date: "%B %d, %Y" }}</a></time>
@@ -29,7 +24,7 @@ body_class: post-template
         {{ content }}
     </div>
 
-    <menu>
+    <!-- <menu>
       <a href="" id="btn_share" class="btn" title="Share">
         <span aria-hidden="true" data-icon="S"></span>
         <strong>Share</strong>
@@ -37,7 +32,7 @@ body_class: post-template
       <a href="http://twitter.com/share?text={{ page.title | cgi_escape }}&url={{ site.url }}{{ page.url prepend: site.baseurl }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" id="btn_comment" class="btn" target="_blank">
         <span aria-hidden="true" data-icon="C"></span> Comment on Twitter
       </a>
-    </menu>
+    </menu> -->
 </article>
 
 {% include footer.html %}
