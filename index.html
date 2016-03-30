@@ -16,9 +16,7 @@ body_class: "home-template user"
                   <img src="{{ site.baseurl }}/content/images/{{ post.image }}">
               </a>
             </div>
-          {% endif %}
-
-          {% if site.unsplash_source %}
+          {% elsif site.unsplash_source %}
             <div class="image-holder show">
               <a href="{{ post.url | prepend: site.baseurl }}" class="inner" style="background-image: url('{{ site.unsplash_source }}');">
                 <img src="{{ site.unsplash_source }}">

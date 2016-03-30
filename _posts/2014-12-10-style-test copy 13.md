@@ -1,8 +1,7 @@
 ---
 layout: post
 title: "Style Test"
-tags: yeah, no
-
+tags: test
 ---
 
 Note: This style test is taken verbatum from the official Roon style test on
