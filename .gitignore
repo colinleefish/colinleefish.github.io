@@ -1,0 +1,3 @@
+# Ignore this buggy "_site"
+
+_site/**
