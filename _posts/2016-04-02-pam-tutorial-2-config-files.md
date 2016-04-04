@@ -3,7 +3,7 @@ layout: post
 title: "PAM 教程：二、Linux-PAM 的配置文件"
 tags: Linux, PAM, Authentication, Tutorial
 unsplash_source_number: 2
-excerpt: 本系列讲解了 Linux-PAM 的工作机制和配置方式。本文是该系列的第二篇：《PAM 的配置文件综述》，主要介绍了 PAM 的配置文件格式，type、control、stack 的概念，以及配置项的逻辑关系。
+excerpt: 本系列讲解了 Linux-PAM 的工作机制和配置方式。本文是该系列的第二篇：《PAM 的配置文件综述》，主要介绍了 PAM 的配置文件格式，工作类别（type）、流程栈（stack）和控制模式（control）的概念，以及配置项的逻辑关系。
 ---
 
 本系列讲解了 Linux-PAM 的工作机制和配置方式，并利用几个 Linux-PAM 模块做一些有趣的小实验。附录中介绍了一些常用的 Linux-PAM 模块。
@@ -21,6 +21,8 @@ excerpt: 本系列讲解了 Linux-PAM 的工作机制和配置方式。本文是
 3. [Linux-PAM 小实验]({% post_url 2016-04-03-pam-tutorial-3-examples %})
 
 4. [Linux-PAM 模块一览]({% post_url 2016-04-04-pam-tutorial-4-module-references %})
+
+5. [参考文献]({ post_url 2016-04-05-pam-tutorial-5-bibliography %})
 
 ---
 
@@ -43,7 +45,7 @@ PAM 的各个模块一般存放在 `/lib/security/` 或 `/lib64/security/` 中�
 
 不难看出，文件夹形式的配置文件中只是没有了服务名称这一列：服务名称已经是文件名了。
 
-由于很难在时下的发行版本中找到使用 `/etc/pam.conf` 这一独立文件作为 PAM 配置的例子，此处仅就 `/etc/pam.d/` 格式举例。在笔者安装的 CentOS 7.2.1511 中，`/etc/pam.d/login` 的内容如下：
+由于很难在时下的发行版本中找到使用 `/etc/pam.conf` 这一独立文件作为 PAM 配置的例子，此处仅就 `/etc/pam.d/` 格式举例。在笔者安装的 CentOS(x64) 7.2.1511 中，`/etc/pam.d/login` 的内容如下：
 
 ```conf
 #%PAM-1.0
@@ -72,11 +74,11 @@ session    include      postlogin
 
 例子的最后一行开头有一个短横线 `-`，意思是如果找不到这个模块，导致无法被加载时，这一事件不会被记录在日志中。这个功能适用于那些认证时非必需的、安装时可能没被安装进系统的模块。
 
-#### 工作类别（type）、流程栈（stack）和控制模式（control）
+##### 工作类别（type）、流程栈（stack）和控制模式（control）
 
 我们在[第一篇]({% post_url 2016-03-30-pam-tutorial-1-intro %})中接触了 Linux-PAM 的四种工作类别（type）。在上面的例子中，工作类别作为第一列出现。
 
-讲到这里，我们有必要引入 PAM 的**流程栈（stack）**概念：它是认证时执行步骤和规则的堆叠。在某个服务的配置文件中，它体现在了配置文件中的自上而下的执行顺序中。栈是可以被引用的，即在一个栈（或者流程）中嵌入另一个栈。我们之后和它会有更多的接触。
+讲到这里，我们有必要聊一聊 PAM 的**流程栈（stack）**概念：它是认证时执行步骤和规则的堆叠。在某个服务的配置文件中，它体现在了配置文件中的自上而下的执行顺序中。栈是可以被引用的，即在一个栈（或者流程）中嵌入另一个栈。我们之后和它会有更多的接触。
 
 第二列为**控制模式（control）**，用于定义各个认证模块在给出各种结果时 PAM 的行为，或者调用在别的配置文件中定义的认证流程栈。该列有两种形式，一种是比较常见的“关键字”模式，另一种则是用方括号（`[]`）包含的“返回值=行为”模式。
 
@@ -118,7 +120,7 @@ session    include      postlogin
 - `optional`：    
   `[success=ok new_authtok_reqd=ok default=ignore]`
 
-#### 模块路径和模块参数
+##### 模块路径和模块参数
 
 正如前文所述，模块一般保存在 `/lib/security` 或 `/lib64/security` 中（取决于操作系统位数）。Linux-PAM 配置文件中的模块位置可以是相对于上述文件夹的相对路径，也可以是文件的全路径。
 

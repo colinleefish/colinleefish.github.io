@@ -22,6 +22,8 @@ excerpt: 本系列讲解了 Linux-PAM 的工作机制和配置方式。本文是
 
 4. [Linux-PAM 模块一览]({% post_url 2016-04-04-pam-tutorial-4-module-references %})（本文）
 
+5. [参考文献]({ post_url 2016-04-05-pam-tutorial-5-bibliography %})
+
 ---
 
 

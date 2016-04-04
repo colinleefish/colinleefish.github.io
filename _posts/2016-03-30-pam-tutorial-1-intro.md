@@ -22,6 +22,8 @@ excerpt: 本系列讲解了 Linux-PAM 的工作机制和配置方式。本文是
 
 4. [Linux-PAM 模块一览]({% post_url 2016-04-04-pam-tutorial-4-module-references %})
 
+5. [参考文献]({ post_url 2016-04-05-pam-tutorial-5-bibliography %})
+
 ---
 
 
@@ -43,7 +45,7 @@ PAM 机制最初由 Sun 公司提出，并在其 Solaris 系统上实现。后�
 
 这下好办了。`su` 的开发人员可以专注地为用户启动 Shell 服务，而不需要关心用户认证的细节了；用户或复杂、或简单的认证需求也都得到了满足。真是皆大欢喜。
 
-#### Linux-PAM 工作的“类别”（type）
+##### Linux-PAM 工作的“类别”（type）
 
 PAM 的具体工作主要有以下四种**类别（type）**：`account`，`auth`，`password` 以及 `session`。这里，我们用非定义化的语言来简单解释一下这四种类别。
 
