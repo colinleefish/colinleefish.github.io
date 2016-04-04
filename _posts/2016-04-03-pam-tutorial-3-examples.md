@@ -35,7 +35,7 @@ excerpt: 本系列讲解了 Linux-PAM 的工作机制和配置方式。本文是
 
 ##### 验证 `required` 和 `requisite` 的区别
 
-在笔者使用的 CentOS 版本中，`/etc/pam.d/system-auth` 是一个有关密码验证的配置文件，`su` 命令把它作为验证过程中的一个子栈。因此，修改该文件便相当于修改了 `su` 的验证配置。`system-auth` 文件中 `auth` 工作组的内容如下：
+在笔者使用的 CentOS 版本中，`/etc/pam.d/system-auth` 是一个通用的验证的配置文件，`su` 等命令把它作为验证过程中的一个子栈。因此，修改该文件便相当于修改了 `su` 等命令的验证配置。`system-auth` 文件中 `auth` 工作组的内容如下：
 
 ```
 auth        required      pam_env.so
