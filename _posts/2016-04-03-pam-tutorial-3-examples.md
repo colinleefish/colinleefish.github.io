@@ -53,7 +53,7 @@ auth        sufficient    pam_unix.so nullok try_first_pass
 auth        requisite     pam_succeed_if.so uid >= 1000 quiet_success
 ```
 
-根据我们在第二篇介绍过的内容可知，当运行到第二行时，由于 `pam_deny.so` 返回失败结果，且控制模式为 `required`，因此整个流程栈走到第二行的时候已经注定失败了。但由于 `required` 不会马上使流程终止，因此这个流程还会走下去。我们尝试用 `su` 命令从普通用户切换到 `root`。
+根据我们在第二篇介绍过的内容可知，当认证流程走到第二行时，由于 `pam_deny.so` 返回失败结果，且控制模式为 `required`，因此整个流程栈走到第二行的时候已经注定失败了。但由于 `required` 不会马上使流程终止，因此这个流程还会走下去。我们来尝试一下，用 `su` 命令从普通用户切换到 `root`。
 
 <script type="text/javascript" src="https://asciinema.org/a/c9pokom8w0vr13zaj3lpttkmu.js" id="asciicast-c9pokom8w0vr13zaj3lpttkmu" async></script>
 
