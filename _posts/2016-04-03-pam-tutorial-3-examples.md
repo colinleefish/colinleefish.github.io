@@ -35,7 +35,7 @@ excerpt: 本系列讲解了 Linux-PAM 的工作机制和配置方式。本文是
 
 ##### 验证 `required` 和 `requisite` 的区别
 
-在笔者使用的 CentOS 版本中，`/etc/pam.d/system-auth` 是一个通用的验证的配置文件，`su` 等命令把它作为验证过程中的一个子栈。因此，修改该文件便相当于修改了 `su` 等命令的验证配置。`system-auth` 文件中 `auth` 工作组的内容如下：
+在笔者使用的 CentOS 版本中，`/etc/pam.d/system-auth` 是一个通用的配置文件，`su` 等命令把它作为验证过程中的一个子栈。因此，修改该文件便相当于修改了 `su` 等命令的验证配置。`system-auth` 文件中 `auth` 工作组的内容如下：
 
 ```
 auth        required      pam_env.so
@@ -44,7 +44,7 @@ auth        requisite     pam_succeed_if.so uid >= 1000 quiet_success
 auth        required      pam_deny.so
 ```
 
-这里我们重点关注第二行和第四行。第二行中的 `pam_unix.so` 会询问用户名和密码，并和 `/etc/passwd` 以及 `/etc/shadow` 作比对；第四行 `pam_deny.so` 会无条件地返回 `err` 从而导致认证失败。我们为了演示，将第四行剪切，挪至第一行和第二行之间。
+这里我们重点关注第二行和第四行。第二行中的 `pam_unix.so` 会询问用户名和密码，并和 `/etc/passwd` 以及 `/etc/shadow` 做对比；第四行 `pam_deny.so` 会无条件地返回 `err` 从而导致认证失败。我们为了演示，将第四行剪切，挪至第一行和第二行之间。
 
 ```
 auth        required      pam_env.so

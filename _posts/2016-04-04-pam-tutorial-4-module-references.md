@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "PAM 教程：四、PAM 的配置文件综述"
+title: "PAM 教程：四、Linux-PAM 模块一览"
 tags: Linux, PAM, Authentication, Tutorial
 unsplash_source_number: 4
 excerpt: 本系列讲解了 Linux-PAM 的工作机制和配置方式。本文是该系列的第四篇：《常用的 Linux-PAM 模块一览》，介绍了比较常见的几个 Linux-PAM 模块，包括它们的功能、返回值和应用场景。
