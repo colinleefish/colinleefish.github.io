@@ -107,7 +107,7 @@ Google Authenticator 也开发了 PAM 的模块，因此我们可以在登录 Li
 
 如果您在安装到最后出现了和笔者一样的提示，说明安装成功，该模块便安装进了 `/usr/local/lib/security`，文件名为 `pam_google_authenticator.so`。为了方便，您可以在 `/lib64/security/` 下创建一个这个文件的软连接，这样在 PAM 配置文件中就不需要写全路径了。
 
-接下来我们来通过命令行来配置 Google Authenticator。直接输入 `google-authenticator`命令，可以打开一个交互的配置工具。在本例中，我们会对所有的提问回答“是”。该工具将在配置过程中输出一串密钥、一个二维码，以及若干备用的一次性密码。
+接下来我们来通过命令行来配置 Google Authenticator。直接输入 `google-authenticator`命令，可以打开一个交互的配置工具。在本例中，我们会对所有的提问回答“是”。该工具将在配置过程中输出一串密钥、一个二维码，以及若干备用的一次性密码，密码生成将基于时间。
 
 <script type="text/javascript" src="https://asciinema.org/a/ebuhsyoxhylka4ypw7xs74mdf.js" id="asciicast-ebuhsyoxhylka4ypw7xs74mdf" async></script>
 
@@ -143,7 +143,7 @@ auth        required      pam_deny.so
 
 不过，由于我们使用的算法是基于时间的，因此您在使用这个模块时，请保证服务器时间的准确性，否则将导致无法登录。
 
-有关 Google Authenticator 的更多信息，请参阅 `/usr/local/share/doc/google-authenticator/README.md`（CentOS），或该项目官方[Github](https://github.com/google/google-authenticator)。
+有关 Google Authenticator 的更多信息，请参阅 `/usr/local/share/doc/google-authenticator/README.md`（CentOS），或该项目的 [Github](https://github.com/google/google-authenticator) 页面。
 
 ---
 [上一篇]({% post_url 2016-04-02-pam-tutorial-2-config-files %}) / [下一篇]({% post_url 2016-04-04-pam-tutorial-4-module-references %})
