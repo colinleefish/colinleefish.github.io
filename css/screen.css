@@ -1357,6 +1357,11 @@ body.touch.user article .readmore {
     filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity: 1
 }
+
+.asciinema {
+    width:auto;
+}
+
 @media only screen and (max-width: 1200px) {
     body.user article.feature .wrap {
         padding-top: 25%
@@ -1441,8 +1446,28 @@ body.touch.user article .readmore {
         font-size: 24px
     }
     article .text {
-        line-height: 1.6em
+        line-height: 1.6em;
+        font-size: 1.2em;
     }
+    article>header h1 {
+        font-size: 24px
+    }
+    article>.text h2 {
+        font-size: 22px;
+    }
+    article>.text h3 {
+        font-size: 20px;
+    }
+    article>.text h4 {
+        font-size: 18px;
+    }
+    article>.text h5 {
+        font-size: 17px;
+    }
+    article>.text h6 {
+        font-size: 16px;
+    }
+    article>header 
     body.user article .text {
         line-height: 1.5em;
         font-size: 16px
@@ -1518,6 +1543,9 @@ body.touch.user article .readmore {
     }
     article header {
         margin-bottom: 30px
+    }
+    article>header h1{
+        font-size: 24px
     }
     article .text pre {
         padding: 8px 10px
@@ -1634,7 +1662,11 @@ body.touch.user article .readmore {
         display: block;
         margin-top: 15px
     }
+    article>header h1{
+        font-size: 24px
+    }
     body.noimage article {
         margin-top: 24px
     }
+    
 }
