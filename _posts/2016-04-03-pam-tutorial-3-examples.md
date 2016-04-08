@@ -6,9 +6,9 @@ unsplash_source_number: 3
 excerpt: 本系列讲解了 Linux-PAM 的工作机制和配置方式。本文是该系列的第三篇：《Linux-PAM 小实验》，首先用一个实验验证了 required 和 requisite 的区别，然后用 Google Authenticator 为一台 CentOS 设备添加了一次性密码。
 ---
 
-本系列讲解了 Linux-PAM 的工作机制和配置方式，并利用几个 Linux-PAM 模块做一些有趣的小实验。附录中介绍了一些常用的 Linux-PAM 模块。
+本系列讲解了 Linux-PAM 的工作机制和配置方式，还在 Linux-PAM 上做一些有趣的小实验。
 
-本文的目标读者是期望了解 PAM 认证机制的 Linux 用户或者系统管理员。如果您是开发人员，希望编写一个使用 PAM 认证的应用程序，或者是为 PAM 写插件的开发人员，本文的内容可能并不能满足您的需求，请参阅[《Linux-PAM应用开发指南》](http://www.linux-pam.org/Linux-PAM-html/Linux-PAM_ADG.html)（英文）和[《Linux-PAM 模块开发指南》](http://www.linux-pam.org/Linux-PAM-html/Linux-PAM_MWG.html)（英文）。
+本文的目标读者是期望了解 PAM 认证机制的 Linux 用户或者系统管理员。如果您是开发人员，希望编写一个使用 PAM 认证的应用程序或者 PAM 模块，本文的内容可能并不能满足您的需求，请参阅[《Linux-PAM应用开发指南》](http://www.linux-pam.org/Linux-PAM-html/Linux-PAM_ADG.html)（英文）和[《Linux-PAM 模块开发指南》](http://www.linux-pam.org/Linux-PAM-html/Linux-PAM_MWG.html)（英文）。
 
 本文是该系列的第三篇：《Linux-PAM 小实验》。
 
@@ -20,9 +20,7 @@ excerpt: 本系列讲解了 Linux-PAM 的工作机制和配置方式。本文是
 
 3. [Linux-PAM 小实验]({% post_url 2016-04-03-pam-tutorial-3-examples %})（本文）
 
-4. [Linux-PAM 模块一览]({% post_url 2016-04-04-pam-tutorial-4-module-references %})
-
-5. [参考文献]({ post_url 2016-04-05-pam-tutorial-5-bibliography %})
+4. [参考文献]({ post_url 2016-04-05-pam-tutorial-5-bibliography %})
 
 ---
 
@@ -146,4 +144,4 @@ auth        required      pam_deny.so
 有关 Google Authenticator 的更多信息，请参阅 `/usr/local/share/doc/google-authenticator/README.md`（CentOS），或该项目的 [Github](https://github.com/google/google-authenticator) 页面。
 
 ---
-[上一篇]({% post_url 2016-04-02-pam-tutorial-2-config-files %}) / [下一篇]({% post_url 2016-04-04-pam-tutorial-4-module-references %})
+[上一篇]({% post_url 2016-04-02-pam-tutorial-2-config-files %}) / [下一篇]({ post_url 2016-04-05-pam-tutorial-5-bibliography %})

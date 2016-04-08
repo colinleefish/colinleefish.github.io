@@ -6,9 +6,9 @@ unsplash_source_number: 2
 excerpt: 本系列讲解了 Linux-PAM 的工作机制和配置方式。本文是该系列的第二篇：《PAM 的配置文件综述》，主要介绍了 PAM 的配置文件格式，工作类别（type）、流程栈（stack）和控制模式（control）的概念，以及配置项的逻辑关系。
 ---
 
-本系列讲解了 Linux-PAM 的工作机制和配置方式，并利用几个 Linux-PAM 模块做一些有趣的小实验。附录中介绍了一些常用的 Linux-PAM 模块。
+本系列讲解了 Linux-PAM 的工作机制和配置方式，还在 Linux-PAM 上做一些有趣的小实验。
 
-本文的目标读者是期望了解 PAM 认证机制的 Linux 用户或者系统管理员。如果您是开发人员，希望编写一个使用 PAM 认证的应用程序，或者是为 PAM 写插件的开发人员，本文的内容可能并不能满足您的需求，请参阅[《Linux-PAM应用开发指南》](http://www.linux-pam.org/Linux-PAM-html/Linux-PAM_ADG.html)（英文）和[《Linux-PAM 模块开发指南》](http://www.linux-pam.org/Linux-PAM-html/Linux-PAM_MWG.html)（英文）。
+本文的目标读者是期望了解 PAM 认证机制的 Linux 用户或者系统管理员。如果您是开发人员，希望编写一个使用 PAM 认证的应用程序或者 PAM 模块，本文的内容可能并不能满足您的需求，请参阅[《Linux-PAM应用开发指南》](http://www.linux-pam.org/Linux-PAM-html/Linux-PAM_ADG.html)（英文）和[《Linux-PAM 模块开发指南》](http://www.linux-pam.org/Linux-PAM-html/Linux-PAM_MWG.html)（英文）。
 
 本文是该系列的第二篇：《Linux-PAM 的配置文件》。
 
@@ -20,9 +20,7 @@ excerpt: 本系列讲解了 Linux-PAM 的工作机制和配置方式。本文是
 
 3. [Linux-PAM 小实验]({% post_url 2016-04-03-pam-tutorial-3-examples %})
 
-4. [Linux-PAM 模块一览]({% post_url 2016-04-04-pam-tutorial-4-module-references %})
-
-5. [参考文献]({ post_url 2016-04-05-pam-tutorial-5-bibliography %})
+4. [参考文献]({ post_url 2016-04-05-pam-tutorial-5-bibliography %})
 
 ---
 
@@ -45,7 +43,7 @@ PAM 的各个模块一般存放在 `/lib/security/` 或 `/lib64/security/` 中�
 
 不难看出，文件夹形式的配置文件中只是没有了服务名称这一列：服务名称已经是文件名了。
 
-由于很难在时下的发行版本中找到使用 `/etc/pam.conf` 这一独立文件作为 PAM 配置的例子，此处仅就 `/etc/pam.d/` 格式举例。在笔者安装的 CentOS(x64) 7.2.1511 中，`/etc/pam.d/login` 的内容如下：
+由于很难在时下的发行版本中找到使用 `/etc/pam.conf` 这一独立文件作为 PAM 配置的例子，此处仅就 `/etc/pam.d/` 格式举例。在笔者安装的 CentOS 7.2.1511 x64 中，`/etc/pam.d/login` 的内容如下：
 
 ```conf
 #%PAM-1.0
