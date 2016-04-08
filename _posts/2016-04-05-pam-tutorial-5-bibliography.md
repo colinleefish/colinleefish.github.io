@@ -28,5 +28,13 @@ excerpt: 本系列讲解了 Linux-PAM 的工作机制和配置方式。本文是
 
 （本篇尚在写作中，敬请期待。）
 
+在本系列的写作中，笔者参考了如下文章：
+
+- Andrew G. Morgan and Thorsten Kukuk: ["The Linux-PAM System Administrator's Guide"](http://www.linux-pam.org/Linux-PAM-html/Linux-PAM_SAG.html), 1 Aug. 2010
+- Wiki: ["Pluggable Authentication Module"](https://en.wikipedia.org/wiki/Pluggable_authentication_module)
+- Wiki: ["Linux-PAM"](https://en.wikipedia.org/wiki/Linux_PAM)
+- Tony Lawrence: ["Understanding PAM Authentication and Security"](http://aplawrence.com/Basics/understandingpam.html), 2005
+- 王基立：[《Linux可插拔认证模块的基本概念与架构》](http://www.infoq.com/cn/articles/wjl-linux-pluggable-authentication-module)，2012年2月29日
+
 ---
 [上一篇]({% post_url 2016-04-03-pam-tutorial-3-examples %}) / 这是最后一篇

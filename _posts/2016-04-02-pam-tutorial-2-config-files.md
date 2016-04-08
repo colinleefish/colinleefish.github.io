@@ -124,5 +124,7 @@ session    include      postlogin
 
 模块参数用空格与模块路径相隔。该参数将只和特定模块相关，因此某个模块的文档中一定包含其参数的信息。如果需要在单个参数中使用空格，可以将整个参数用方括号（`[]`）包裹起来。
 
+更多有关模块的信息，可参阅 Linux-PAM 的[模块文档](http://www.linux-pam.org/Linux-PAM-html/sag-module-reference.html)。
+
 ---
 [上一篇]({% post_url 2016-03-30-pam-tutorial-1-intro %}) / [下一篇]({% post_url 2016-04-03-pam-tutorial-3-examples %})
