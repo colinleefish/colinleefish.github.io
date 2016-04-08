@@ -26,8 +26,6 @@ excerpt: 本系列讲解了 Linux-PAM 的工作机制和配置方式。本文是
 
 ### 4. 参考文献
 
-（本篇尚在写作中，敬请期待。）
-
 在本系列的写作中，笔者参考了如下文章：
 
 - Andrew G. Morgan and Thorsten Kukuk: ["The Linux-PAM System Administrator's Guide"](http://www.linux-pam.org/Linux-PAM-html/Linux-PAM_SAG.html), 1 Aug. 2010

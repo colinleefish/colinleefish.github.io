@@ -5,7 +5,8 @@ email: colinleefish@gmail.com
 description: > # this means to ignore newlines until "url:"
   李广慧是一位Linux系统管理员，毕业于东北财经大学，文学学士。现居上海，供职于德邦物流。
   “Virginia Jean”是他的技术博客，记录Linux、Python等等IT方面的学习内容。
-  博客名源于电影《一切尽失》，是主人公赖以生存的小船。
+  博客名源于电影《一切尽失》，是主人公赖以生存的小船。<br />
+  WeChat: colinleefish
 url: "https://colinleefish.github.io" # the base hostname & protocol for your site
 baseurl: "" # the subpath of your site, e.g. /blog/
 

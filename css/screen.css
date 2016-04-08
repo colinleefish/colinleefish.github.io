@@ -42,6 +42,11 @@ q:before, q:after, blockquote:before, blockquote:after {
 a img {
     border: none
 }
+
+nav.site-nav {
+  margin-top: 20px;
+}
+
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
     display: block
 }
@@ -1467,7 +1472,7 @@ body.touch.user article .readmore {
     article>.text h6 {
         font-size: 16px;
     }
-    article>header 
+    article>header
     body.user article .text {
         line-height: 1.5em;
         font-size: 16px
@@ -1668,5 +1673,5 @@ body.touch.user article .readmore {
     body.noimage article {
         margin-top: 24px
     }
-    
+
 }
