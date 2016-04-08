@@ -20,7 +20,7 @@ excerpt: 本系列讲解了 Linux-PAM 的工作机制和配置方式。本文是
 
 3. [Linux-PAM 小实验]({% post_url 2016-04-03-pam-tutorial-3-examples %})（本文）
 
-4. [参考文献]({ post_url 2016-04-05-pam-tutorial-5-bibliography %})
+4. [参考文献]({ post_url 2016-04-05-pam-tutorial-4-bibliography %})
 
 ---
 
@@ -144,4 +144,4 @@ auth        required      pam_deny.so
 有关 Google Authenticator 的更多信息，请参阅 `/usr/local/share/doc/google-authenticator/README.md`（CentOS），或该项目的 [Github](https://github.com/google/google-authenticator) 页面。
 
 ---
-[上一篇]({% post_url 2016-04-02-pam-tutorial-2-config-files %}) / [下一篇]({ post_url 2016-04-05-pam-tutorial-5-bibliography %})
+[上一篇]({% post_url 2016-04-02-pam-tutorial-2-config-files %}) / [下一篇]({ post_url 2016-04-05-pam-tutorial-4-bibliography %})

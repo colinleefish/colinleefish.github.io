@@ -20,7 +20,7 @@ excerpt: 本系列讲解了 Linux-PAM 的工作机制和配置方式。本文是
 
 3. [Linux-PAM 小实验]({% post_url 2016-04-03-pam-tutorial-3-examples %})
 
-4. [参考文献]({ post_url 2016-04-05-pam-tutorial-5-bibliography %})（本文）
+4. [参考文献]({ post_url 2016-04-05-pam-tutorial-4-bibliography %})（本文）
 
 ---
 
