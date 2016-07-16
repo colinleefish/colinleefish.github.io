@@ -10,7 +10,7 @@ Oracle Linux 是 Oracle 公司基于 Red Hat Enterprise Linux 重新打包的 Li
 
 可能有些人会误以为 Oracle Linux 也是收费软件，但事实并非如此：下载、使用 Oracle Linux，以及使用它的[YUM源](http://public-yum.oracle.com)都是[免费的](http://www.oracle.com/us/technologies/linux/competitive-335546.html)。寻求[官方技术支持](http://www.oracle.com/us/technologies/027617.pdf)才需要订阅付费项目。在国内，有公司选用了 Oracle Linux 来运行 Oracle 数据库。
 
-Oracle Linux 紧跟 RHEL 的发布周期，在 RHEL 发布新版本之后很快便会发布，速度甚至超过了 CentOS。可以说也是一个非常积极的 RHEL 系分发版。但在国内，由于知名度不如 CentOS，以及没有稳定的下载源，获取该系列镜像文件有很大的困难。由此，本文介绍了如何在 Oracle 官网下载 Oracle Linux，并根据国内网络现状给出了应对办法。
+Oracle Linux 紧跟 RHEL 的发布周期，在 RHEL 发布新版本之后很快便会发布，速度甚至超过了 CentOS。可以说也是一个非常积极的 RHEL 系分发版。但在国内，可能由于知名度不如 CentOS，以及鲜有稳定的下载源，获取该系列镜像文件有不小的困难。由此，本文介绍了如何在 Oracle 官网下载 Oracle Linux，并根据国内网络现状给出了应对办法。
 
 （请注意，Oracle 的官方网站历经数次变动，本文中介绍的下载方式也很可能在未来出现变化。因此还请与时俱进，以 Oracle 官网为准。）
 
@@ -103,6 +103,8 @@ Oracle 的官方网站为：[https://www.oracle.com/](https://www.oracle.com/)�
 ### 2. Oracle Linux 的 YUM 源
 
 正如文章开头所讲到的一样，Oracle 官方很贴心的提供了一个 YUM 源，并且可以免费使用。地址为：[http://public-yum.oracle.com/](http://public-yum.oracle.com/)。该网站上有具体的配置文档，请参阅以获得更多内容。
+
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="https://vizzlo.com/embed/colinlee/untitled-document" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:none; overflow:hidden;" allowTransparency="false" scrolling="no" frameborder="0"></iframe ></div>
 
 ---
 
