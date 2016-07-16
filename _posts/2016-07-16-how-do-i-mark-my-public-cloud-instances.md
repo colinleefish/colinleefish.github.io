@@ -50,7 +50,7 @@ Hostname 可能是我们标记网络上设备的最好选择了。但是 Hostnam
 |CentOS|ctos|ctos7|
 |Fedora|fdr|fdr7|
 |Oracle Linux|orl|orl7|
-|Ubuntu|ubt|ubt16.04|
+|Ubuntu|ubt|ubt1604|
 |FreeBSD|fbd|fbd10|
 |CoreOS|crs|crs1068|
 |Windows|win|win2012|
