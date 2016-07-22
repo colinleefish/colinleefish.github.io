@@ -2,7 +2,7 @@
 layout: post
 title: "如何从 Oracle 官网下载 Oracle Linux"
 tags: oracle linux, linux
-unsplash_source_number: 6
+unsplash_source_number: 8
 excerpt: 本文介绍了如何在 Oracle 官网下载 Oracle Linux，并根据国内网络现状给出了应对办法。
 ---
 
