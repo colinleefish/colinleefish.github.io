@@ -104,7 +104,6 @@ Oracle 的官方网站为：[https://www.oracle.com/](https://www.oracle.com/)�
 
 正如文章开头所讲到的一样，Oracle 官方很贴心的提供了一个 YUM 源，并且可以免费使用。地址为：[http://public-yum.oracle.com/](http://public-yum.oracle.com/)。该网站上有具体的配置文档，请参阅以获得更多内容。
 
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="https://vizzlo.com/embed/colinlee/untitled-document" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:none; overflow:hidden;" allowTransparency="false" scrolling="no" frameborder="0"></iframe ></div>
 
 ---
 
