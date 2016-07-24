@@ -7,7 +7,7 @@ description: > # this means to ignore newlines until "url:"
   “Virginia Jean”是他的技术博客，记录Linux、Python等等IT方面的学习内容。
   博客名源于电影《一切尽失》，是主人公赖以生存的小船。<br />
   WeChat: colinleefish
-url: "https://colinleefish.github.io" # the base hostname & protocol for your site
+url: "https://v.colinlee.fish" # the base hostname & protocol for your site
 baseurl: "" # the subpath of your site, e.g. /blog/
 
 # The author's (or owner's) name. Will show in footer.
