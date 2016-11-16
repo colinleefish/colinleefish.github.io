@@ -30,12 +30,29 @@ excerpt: 搭建个镜像站，再不怕打补丁。
 
 下面我们就来聊一聊如何搭建一个简约的镜像站。整个过程大概仅需 20 分钟。
 
-首先我们要安装 Nginx。而正如前文所说，安装 Nginx 首先需要配置 EPEL 源。
+首先我们要安装 Nginx。而正如前文所说，安装 Nginx 首先需要配置 EPEL 源。然后再安装 Nginx。
 
 ```
 $ sudo yum install -y epel-release
 $ sudo yum install -y nginx
 ```
+
+然后，我们要为镜像站的文件规划一个合适的存放路径，用来接收更新，以及对外提供服务。本例中，我们在根目录下创建一个新文件夹`/mirrors`，文件夹内的结构如下：
+
+```
+/mirrors
+   |
+   |--/data
+   |     |
+   |     |--/centos
+   |     |
+   |     |--/epel
+   |
+   |--/scripts
+   |
+   |--/log
+```
+
 
 #### 1.3 前端
 
