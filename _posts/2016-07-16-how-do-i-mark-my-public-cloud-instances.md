@@ -30,6 +30,7 @@ Hostname 可能是我们标记网络上设备的最好选择了。但是 Hostnam
 |DigitalOcean|don|
 |Vultr|vlt|
 |Bandwagon|bwg|
+|StarryDNS|sry|
 |阿里云|ali|
 |Ucloud|ucd|
 |腾讯云|qcd|
