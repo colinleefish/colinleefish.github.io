@@ -53,8 +53,15 @@ $ sudo yum install -y nginx
    |--/log
 ```
 
+在 Nginx 中，将 Nginx 的根目录设置为 `"/mirrors/data"`，同时还要开启 `autoindex`。
 
-#### 1.3 前端
+为我们的镜像站安好“新家”之后，接下来就要把他们“请来”了。这里我们使用了 `rsync`，一个 Linux 下的高效的文件同步工具。
+
+在 CentOS 网站中，有一个专门提供第三方镜像站的页面：https://www.centos.org/download/mirrors/。用户可以在这个页面查询到有哪些镜像站，以及每一个镜像站是否支持 rsync -- 不是所有的镜像站都开启了这个功能。
+
+笔者建议用户使用
+
+
 
 #### 1.4 了解更多
 
