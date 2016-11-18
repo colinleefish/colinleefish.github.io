@@ -89,6 +89,7 @@ server {
 这里我们推荐您使用[清华大学](https://mirrors.tuna.tshinghua.edu.cn)和[中国科学技术大学](https://mirrors.ustc.edu.cn)的镜像站。这两个镜像站相对稳定，提供了多种丰富的镜像库，而且还支持 rsync 协议。我们这里就以清华大学的镜像站为例，编写如下两个 rsync 命令：
 
 **/mirrors/scripts/tuna-centos.sh**
+
 ```
 #!/bin/bash
 
@@ -96,6 +97,7 @@ server {
 ```
 
 **/mirrors/scripts/tuna-epel.sh**
+
 ```
 #!/bin/bash
 
@@ -163,6 +165,7 @@ EPEL 的 `.repo` 文件获取方式也很简单。只要执行了 `yum install e
 我们准备好了 `.repo` 文件，可是每次配置起来依然是一件麻烦事。索性写一个脚本吧。
 
 **/mirrors/sh**
+
 ```
 #!/bin/bash
 
