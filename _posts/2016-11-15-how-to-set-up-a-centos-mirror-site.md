@@ -84,7 +84,7 @@ server {
 
 为我们的镜像站安好“新家”之后，接下来就要把他们“请来”了。这里我们使用了 `rsync`，一个 Linux 下的高效的文件同步工具。
 
-在 CentOS 网站中，有一个专门提供第三方镜像站的页面：https://www.centos.org/download/mirrors/。用户可以在这个页面查询到有哪些镜像站，以及每一个镜像站是否支持 rsync —— 不是所有的镜像站都开启了这个功能。使用 HTTP 同步则会相对麻烦一点。
+在 CentOS 网站中，有一个专门提供第三方镜像站的页面：[https://www.centos.org/download/mirrors/](https://www.centos.org/download/mirrors/)。用户可以在这个页面查询到有哪些镜像站，以及每一个镜像站是否支持 rsync —— 不是所有的镜像站都开启了这个功能。使用 HTTP 同步则会相对麻烦一点。
 
 这里我们推荐您使用[清华大学](https://mirrors.tuna.tshinghua.edu.cn)和[中国科学技术大学](https://mirrors.ustc.edu.cn)的镜像站。这两个镜像站相对稳定，提供了多种丰富的镜像库，而且还支持 rsync 协议。我们这里就以清华大学的镜像站为例，编写如下两个 rsync 命令：
 
