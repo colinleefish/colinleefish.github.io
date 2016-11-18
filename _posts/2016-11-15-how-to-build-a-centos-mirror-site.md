@@ -64,22 +64,74 @@ $ sudo yum install -y nginx
 ```
 #!/bin/bash
 
-/usr/bin/rsync -rltz4 --progress --delete --log-file=/var/log/mirrors/tuna-centos.log rsync://mirrors.tuna.tshinghua.edu.cn/centos/ /opt/mirrors/data/centos/
+/usr/bin/rsync -rltz4 --progress --delete --log-file=/mirrors/log/tuna-centos.log rsync://mirrors.tuna.tshinghua.edu.cn/centos/ /mirrors/data/centos/
 ```
 
 ```
 #!/bin/bash
 
-/usr/bin/rsync -rltz4 --progress --delete --log-file=/var/log/mirrors/tuna-epel.log rsync://mirrors.tuna.tshinghua.edu.cn/epel/ /mirrors/data/epel/
+/usr/bin/rsync -rltz4 --progress --delete --log-file=/mirrors/log/tuna-epel.log rsync://mirrors.tuna.tshinghua.edu.cn/epel/ /mirrors/data/epel/
 ```
 
+我们使用的参数中，`r`表示递归同步，也就是将文件夹内的所有文件都同步，`l`表示同步链接文件，`t`表示保留时间戳，`z`表示开启压缩；`--progress`和`--delete`分别表示使用现实详细进度，和删除源地址中没有的文件（也就是和上游保持完全的一致），`--log-file`能指定一个日志位置。
+
+我们将其保存成两个 Shell 脚本。放在 /mirrors/scripts 文件夹中。
+
+随意执行一下，可以看见 rsync 已经在欢快地进行同步了。
+
+<script type="text/javascript" src="https://asciinema.org/a/9ok3w1rzo8t1xsx575zuu1rer.js" id="asciicast-9ok3w1rzo8t1xsx575zuu1rer" async></script>
+
+注意，这里仅是一个演示，一切的操作都是在 root 用户名下进行的；如果您是在实际环境中搭建，强烈建议您使用普通用户进行操作。
+
+接下来我们将这个脚本放在 cron 中定时执行即可。
+
+```
+[root@localhost ~]$ crontab -l
+0 23 * * 1,3,5 sh /mirrors/scripts/epel-ustc.sh >> /dev/null
+0 23 * * 2,4,6 sh /mirrors/scripts/centos-ustc.sh >> /dev/null
+```
+
+第一次同步需要耗费的时间较长。如果您的网络质量不理想，还有可能断掉，所以请在第一次同步时多加注意。
+
+好了，现在你的专属镜像站已经搭建完成了。如果你愿意，还可以为它制作一份首页和帮助文档，方便他人使用。
+
 #### 1.4 了解更多
+
+清华大学的 TUNA 为他们的镜像站制作了一个非常漂亮的[前端](https://github.com/tuna/mirror-web)，以及一个 Golang 写成的[同步工具](https://github.com/tuna/tunasync)，作为 cron 的替代品。代码托管在了 Github。
 
 ### 2. 使用镜像站
 
 ### 2.1 “.repo” 文件范例
 
+有了镜像站只是第一步，接下来我们就要聊一聊如何使用了。
+
+众所周知，YUM 源的信息都会存放在 `/etc/yum.repos.d/` 这个文件夹内，以后缀为 `.repo` 的形式存在。我们可以预先写好标准的 `.repo` 文件，在部署机器的时候直接下载，省时省力。
+
+最简单的方法是找一个系统自带的 `.repo` 文件。然后我们把它改成我们的内容。下面就是用在 CentOS 7 的原始 `CentOS-Base.repo` 文件的一部分。
+
+```
+[base]
+name=CentOS-$releasever - Base
+mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra
+#baseurl=http://mirror.centos.org/centos/$releasever/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+```
+
+每一段的以下两个地方都需要我们修改。
+
+1. 注释掉 `mirrorlist` 一行。这个地方会帮我们寻找最快的镜像站，但仅适用于能连外网的情况。我们已经有了我们的镜像站，所以这一行已经不需要了；还要
+2. 打开 `baseurl` 这一行。并且将域名修改为我们刚刚建立的镜像站地址。其他的东西就不用修改了。
+
+如果有的段落里有 `enabled=0` 的，也无需做改动。仅在需要时临时打开即可。
+
+有的运维人员可能喜欢将 `gpgcheck` 设置为 `0`，也就是不用密钥校验软件包的真实性。但这样的做法有非常大的风险性，因此我们还是建议开启这个功能。
+
+EPEL 的 `.repo` 文件获取方式也很简单。只要执行了 `yum install epel-release`。你的 `/etc/yum.repos.d/ `文件夹下就会有 `epel.repo` 和 `epel-testing.repo` 这两个文件。要修改的点和上面的内容大致相同。但有一点区别是，如果使用了 EPEL 源，且打开了 `gpgckech` 在首次使用时，YUM 会询问用户是否导入配置中说明的密钥。
+
 ### 2.2 自动配置脚本
+
+
 
 ### 2.3 插件的取舍
 
