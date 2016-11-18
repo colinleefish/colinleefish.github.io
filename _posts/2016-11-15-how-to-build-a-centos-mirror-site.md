@@ -50,10 +50,37 @@ $ sudo yum install -y nginx
    |
    |--/scripts
    |
+   |--/repo
+   |
    |--/log
 ```
 
-在 Nginx 中，将 Nginx 的根目录设置为 `"/mirrors/data"`，同时还要开启 `autoindex`。
+在 Nginx 中，将 Nginx 的根目录设置为 `"/mirrors/data"`，同时还要开启 `autoindex`。下面是一个 Nginx 配置文件样例，将下面这段配置复制在 `/etc/nginx/conf.d/mirror-site.conf` 中，重启 Nginx 后即可生效。
+
+```
+server {
+    listen       80;
+    server_name  {服务器的名称};
+
+
+    # 镜像站的主要数据
+    location / {
+        root        /mirrors/data/;
+        autoindex   on;
+    }
+
+    # repo文件
+    location /repo {
+        root          /mirrors;
+        autoindex     on;
+    }
+
+    # 自动配置脚本
+    location /sh {
+        root          /mirrors;
+    }
+}
+```
 
 为我们的镜像站安好“新家”之后，接下来就要把他们“请来”了。这里我们使用了 `rsync`，一个 Linux 下的高效的文件同步工具。
 
@@ -61,12 +88,14 @@ $ sudo yum install -y nginx
 
 这里我们推荐您使用[清华大学](https://mirrors.tuna.tshinghua.edu.cn)和[中国科学技术大学](https://mirrors.ustc.edu.cn)的镜像站。这两个镜像站相对稳定，提供了多种丰富的镜像库，而且还支持 rsync 协议。我们这里就以清华大学的镜像站为例，编写如下两个 rsync 命令：
 
+**/mirrors/scripts/tuna-centos.sh**
 ```
 #!/bin/bash
 
 /usr/bin/rsync -rltz4 --progress --delete --log-file=/mirrors/log/tuna-centos.log rsync://mirrors.tuna.tshinghua.edu.cn/centos/ /mirrors/data/centos/
 ```
 
+**/mirrors/scripts/tuna-epel.sh**
 ```
 #!/bin/bash
 
@@ -127,14 +156,97 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 
 有的运维人员可能喜欢将 `gpgcheck` 设置为 `0`，也就是不用密钥校验软件包的真实性。但这样的做法有非常大的风险性，因此我们还是建议开启这个功能。
 
-EPEL 的 `.repo` 文件获取方式也很简单。只要执行了 `yum install epel-release`。你的 `/etc/yum.repos.d/ `文件夹下就会有 `epel.repo` 和 `epel-testing.repo` 这两个文件。要修改的点和上面的内容大致相同。但有一点区别是，如果使用了 EPEL 源，且打开了 `gpgckech` 在首次使用时，YUM 会询问用户是否导入配置中说明的密钥。
+EPEL 的 `.repo` 文件获取方式也很简单。只要执行了 `yum install epel-release`。你的 `/etc/yum.repos.d/ `文件夹下就会有 `epel.repo` 和 `epel-testing.repo` 这两个文件。要修改的内容和上面的大致相同。但有一点区别是，如果使用了 EPEL 源，且打开了 `gpgckech` 在首次使用时，YUM 会询问用户是否导入配置中说明的密钥。
 
 ### 2.2 自动配置脚本
 
+我们准备好了 `.repo` 文件，可是每次配置起来依然是一件麻烦事。索性写一个脚本吧。
 
+**/mirrors/sh**
+```
+#!/bin/bash
+
+# Author: Li Guanghui
+
+# Set error color
+
+Color_Text()
+{
+  echo -e " \e[0;$2m$1\e[0m"
+}
+
+Echo_Red()
+{
+  echo -e $( Color_Text "$1" "31")
+}
+
+# Check if user is root
+
+if [ $(id -u) != "0" ]; then
+    Echo_Red "Error: You are not root."
+    exit 1
+fi
+
+# Check if OS is indeed CentOS
+
+if grep -Eqi "CentOS" /etc/issue || grep -Eq "CentOS" /etc/*-release; then :
+    pass
+else
+    Echo_Red "Error: Your OS is not CentOS, which is not supported."
+    exit 1
+fi
+
+# Get CentOS version info: 5/6/7
+
+CENTOS_VERSION_BY_RPM=`rpm -q --queryformat '%{VERSION}' centos-release`
+CENTOS_VERSION_BY_RELEASE=`cat /etc/redhat-release | grep -o '[0-9]\.[0-9]'`
+
+# Repo files backup
+
+Repo_Backup()
+{
+    if [ -f "/etc/yum.repos.d/CentOS-Base.repo" ]; then
+        mv --backup=t /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+    fi
+
+    if [ -f "/etc/yum.repos.d/epel.repo" ]; then
+        mv --backup=t /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.backup
+    fi
+}
+
+# Repo files install
+
+Repo_Install()
+{
+        BASE_REPO_URL="http://mirrors.example.com/repo/centos-"${CENTOS_VERSION_BY_RPM}".repo"
+        EPEL_REPO_URL="http://mirrors.example.com/repo/epel-"${CENTOS_VERSION_BY_RPM}".repo"
+        curl -sS -o /etc/yum.repos.d/CentOS-Base.repo $BASE_REPO_URL
+        curl -sS -o /etc/yum.repos.d/epel.repo $EPEL_REPO_URL
+}
+
+# Download and install repo files, including base and epel
+
+if [ $CENTOS_VERSION_BY_RPM = ${CENTOS_VERSION_BY_RELEASE%%.*} ]; then
+        Repo_Backup
+        Repo_Install
+        #echo "Repo files installed."
+else
+        Echo_Red "Error: CentOS version invalid."
+fi
+```
+
+我们将这个脚本就命名为 `sh`，放在 `/mirrors` 下。以后在配置的时候。只要执行
+
+```
+curl -sS http://mirrors.example.com/sh | bash
+```
+
+就可以快速配置好 YUM 源了。
 
 ### 2.3 插件的取舍
 
+在我们使用了内部的镜像站之后，便可以禁用掉一些不再适用的 YUM 插件了。比如 `fastestmirror`：如果配置了 `mirrorlist`，这个插件会帮我们测算最快的镜像站。但我们此时已经无需再测速了，在 `/etc/yum/pluginconf.d/fastestmirror.conf` 中，将 `enabled` 改为 `0`即可。
+
 ---
 
-以上便是我标记自己使用的云主机的方法，感谢阅读。您是否有更好的方法和实践？欢迎在下面留言。
+以上便是一些搭建和使用镜像站的心得，感谢阅读。欢迎在下面留言。
