@@ -93,7 +93,7 @@ server {
 ```
 #!/bin/bash
 
-/usr/bin/rsync -rltz4 --progress --delete --log-file=/mirrors/log/tuna-centos.log rsync://mirrors.tuna.tshinghua.edu.cn/centos/ /mirrors/data/centos/
+/usr/bin/rsync -rltz4 --progress --delete --log-file=/mirrors/log/tuna-centos.log rsync://mirrors.tuna.tsinghua.edu.cn/centos/ /mirrors/data/centos/
 ```
 
 **/mirrors/scripts/tuna-epel.sh**
@@ -101,7 +101,7 @@ server {
 ```
 #!/bin/bash
 
-/usr/bin/rsync -rltz4 --progress --delete --log-file=/mirrors/log/tuna-epel.log rsync://mirrors.tuna.tshinghua.edu.cn/epel/ /mirrors/data/epel/
+/usr/bin/rsync -rltz4 --progress --delete --log-file=/mirrors/log/tuna-epel.log rsync://mirrors.tuna.tsinghua.edu.cn/epel/ /mirrors/data/epel/
 ```
 
 我们使用的参数中，`r`表示递归同步，也就是将文件夹内的所有文件都同步，`l`表示同步链接文件，`t`表示保留时间戳，`z`表示开启压缩；`--progress`和`--delete`分别表示使用现实详细进度，和删除源地址中没有的文件（也就是和上游保持完全的一致），`--log-file`能指定一个日志位置。
