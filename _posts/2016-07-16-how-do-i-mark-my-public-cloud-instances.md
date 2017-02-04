@@ -2,7 +2,7 @@
 layout: post
 title: "我如何标记自己的公有云服务器实例"
 tags: iaas,hostname,domain,management,digitalocean,vultr,aws,iata
-unsplash_source_number: 7
+unsplash_id: 
 excerpt: 我购买了好几个公有云实例，它们分布在不同的城市，属于不同的供应商，并且可能有多个分发版本。我如何标记自己的公有云实例？
 ---
 

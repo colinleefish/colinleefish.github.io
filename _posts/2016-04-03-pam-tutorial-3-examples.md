@@ -2,7 +2,7 @@
 layout: post
 title: "PAM 教程：三、Linux-PAM 小实验"
 tags: Linux, PAM, Authentication, Tutorial
-unsplash_source_number: 3
+unsplash_id: 
 excerpt: 本系列讲解了 Linux-PAM 的工作机制和配置方式。本文是该系列的第三篇：《Linux-PAM 小实验》，首先用一个实验验证了 required 和 requisite 的区别，然后用 Google Authenticator 为一台 CentOS 设备添加了一次性密码。
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "PAM 教程：一、PAM 简介"
 tags: Linux, PAM, Authentication, Tutorial
-unsplash_source_number: 1
+unsplash_id: BbQLHCpVUqA
 excerpt: 本系列讲解了 Linux-PAM 的工作机制和配置方式。本文是该系列的第一篇：《PAM 简介》，主要介绍了 PAM 是什么、解决了什么问题以及它在 Linux 系统中具体的职责。
 ---
 

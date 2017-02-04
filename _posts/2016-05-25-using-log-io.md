@@ -2,7 +2,7 @@
 layout: post
 title: "用 Log.io 在 web 端实时展现应用日志"
 tags: Linux, log.io, logging, sersync2, rsync
-unsplash_source_number: 5
+unsplash_id: 
 excerpt: 本文作者：薛勇。他在本文中介绍了如何用 log.io 来搭建一个 Web 日志查看平台，以满足日志实时查看的需求。
 ---
 

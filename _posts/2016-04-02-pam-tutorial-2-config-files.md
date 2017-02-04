@@ -2,7 +2,7 @@
 layout: post
 title: "PAM 教程：二、Linux-PAM 的配置文件"
 tags: Linux, PAM, Authentication, Tutorial
-unsplash_source_number: 2
+unsplash_id: 
 excerpt: 本系列讲解了 Linux-PAM 的工作机制和配置方式。本文是该系列的第二篇：《PAM 的配置文件综述》，主要介绍了 PAM 的配置文件格式，工作类别（type）、流程栈（stack）和控制模式（control）的概念，以及配置项的逻辑关系。
 ---
 
