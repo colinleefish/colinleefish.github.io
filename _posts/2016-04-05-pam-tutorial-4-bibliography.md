@@ -2,7 +2,7 @@
 layout: post
 title: "PAM 教程：四、参考文献"
 tags: Linux, PAM, Authentication, Tutorial
-unsplash_id: 
+unsplash_id: tAKXap853rY
 excerpt: 本系列讲解了 Linux-PAM 的工作机制和配置方式。本文是该系列的第四篇：《参考文献》，列出了对本文非常有帮助的文章和链接。向各位前辈表示敬意。
 ---
 
