@@ -2,7 +2,7 @@
 layout: post
 title: "大规模封闭的生产环境？你需要一个镜像站"
 tags: yum,repository,centos,infrastructure,rsync,mirrorsite,
-unsplash_id: 
+unsplash_id: B5j_W25e1JU
 excerpt: 搭建个镜像站，再不怕打补丁。
 ---
 
