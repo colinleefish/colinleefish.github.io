@@ -8,7 +8,7 @@ excerpt: 本文介绍了如何在 Oracle 官网下载 Oracle Linux，并根据�
 
 Oracle Linux 是 Oracle 公司基于 Red Hat Enterprise Linux 重新打包的 Linux 分发版本。这个分发版本保持了和 RHEL 系列较高的兼容性，并且拥有大多数主流服务器厂商的硬件支持。Oracle Linux 提供 RHEL 原生的内核，还提供了 Oracle 自行打包的 *Unbreakable Enterprise Kernel*，加入了对 OLTP，InfiniBand，SSD，异步IO等支持。
 
-可能有些人会误以为 Oracle Linux 也是收费软件，但事实并非如此：下载、使用 Oracle Linux，以及使用它的[YUM源](http://public-yum.oracle.com)都是[免费的](http://www.oracle.com/us/technologies/linux/competitive-335546.html)。寻求[官方技术支持](http://www.oracle.com/us/technologies/027617.pdf)才需要订阅付费项目。在国内，有公司选用了 Oracle Linux 来运行 Oracle 数据库。
+可能有些人会误以为 Oracle Linux 也是收费软件，但事实并非如此：下载、使用 Oracle Linux，以及使用它的 [YUM 源](http://public-yum.oracle.com)都是[免费的](http://www.oracle.com/us/technologies/linux/competitive-335546.html)。寻求[官方技术支持](http://www.oracle.com/us/technologies/027617.pdf)才需要订阅付费项目。在国内，有公司选用了 Oracle Linux 来运行 Oracle 数据库。
 
 Oracle Linux 紧跟 RHEL 的发布周期，在 RHEL 发布新版本之后很快便会发布，速度甚至超过了 CentOS。可以说也是一个非常积极的 RHEL 系分发版。但在国内，可能由于知名度不如 CentOS，以及鲜有稳定的下载源，获取该系列镜像文件有不小的困难。由此，本文介绍了如何在 Oracle 官网下载 Oracle Linux，并根据国内网络现状给出了应对办法。
 
