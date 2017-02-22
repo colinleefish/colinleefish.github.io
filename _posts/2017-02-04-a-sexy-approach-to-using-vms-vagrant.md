@@ -2,7 +2,7 @@
 layout: post
 title: "Vagrant: 使用虚拟机的性感方式"
 tags: vagrant,virtualbox,ansible,provisioning,test environment
-unsplash_id: uZqJVqwFxMQ
+unsplash_id: _fYBsiQzMHI
 excerpt: Vagrant 能够让用户以一种可定义、可分享的方式来创建虚拟机，并且还能在公网范围进行 Web 或 SSH 共享。“环境不同”导致运行失败的情况再也不会发生了。
 ---
 
