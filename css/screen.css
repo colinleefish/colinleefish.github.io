@@ -376,7 +376,7 @@ body.noimage {
 #feature_image {
     position: relative;
     width: 100%;
-    height: 60%;
+    height: 80%;
 }
 #feature_image .inner {
     position: absolute;
@@ -806,7 +806,7 @@ body.user article header h1 {
     font-size: 32px
 }
 body.user article .image-holder {
-    height: 300px;
+    height: 400px;
     margin: 0 auto 30px auto;
     overflow: hidden;
     max-width: 720px;
