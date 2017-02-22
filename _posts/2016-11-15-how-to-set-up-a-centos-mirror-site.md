@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "大规模封闭的生产环境？你需要一个镜像站"
-tags: yum,repository,centos,infrastructure,rsync,mirrorsite,
+tags: yum,repository,centos,infrastructure,rsync,mirrorsite
 unsplash_id: B5j_W25e1JU
 excerpt: 搭建个镜像站，再不怕打补丁。
 ---
@@ -132,7 +132,7 @@ server {
 
 ### 2. 使用镜像站
 
-### 2.1 “.repo” 文件范例
+#### 2.1 “.repo” 文件范例
 
 有了镜像站只是第一步，接下来我们就要聊一聊如何使用了。
 
@@ -160,83 +160,11 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 
 EPEL 的 `.repo` 文件获取方式也很简单。只要执行了 `yum install epel-release`。你的 `/etc/yum.repos.d/ `文件夹下就会有 `epel.repo` 和 `epel-testing.repo` 这两个文件。要修改的内容和上面的大致相同。但有一点区别是，如果使用了 EPEL 源，且打开了 `gpgckech` 在首次使用时，YUM 会询问用户是否导入配置中说明的密钥。
 
-### 2.2 自动配置脚本
+#### 2.2 自动配置脚本
 
 我们准备好了 `.repo` 文件，可是每次配置起来依然是一件麻烦事。索性写一个脚本吧。
 
-**/mirrors/sh**
-
-```
-#!/bin/bash
-
-# Author: Li Guanghui
-
-# Set error color
-
-Color_Text()
-{
-  echo -e " \e[0;$2m$1\e[0m"
-}
-
-Echo_Red()
-{
-  echo -e $( Color_Text "$1" "31")
-}
-
-# Check if user is root
-
-if [ $(id -u) != "0" ]; then
-    Echo_Red "Error: You are not root."
-    exit 1
-fi
-
-# Check if OS is indeed CentOS
-
-if grep -Eqi "CentOS" /etc/issue || grep -Eq "CentOS" /etc/*-release; then :
-    pass
-else
-    Echo_Red "Error: Your OS is not CentOS, which is not supported."
-    exit 1
-fi
-
-# Get CentOS version info: 5/6/7
-
-CENTOS_VERSION_BY_RPM=`rpm -q --queryformat '%{VERSION}' centos-release`
-CENTOS_VERSION_BY_RELEASE=`cat /etc/redhat-release | grep -o '[0-9]\.[0-9]'`
-
-# Repo files backup
-
-Repo_Backup()
-{
-    if [ -f "/etc/yum.repos.d/CentOS-Base.repo" ]; then
-        mv --backup=t /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
-    fi
-
-    if [ -f "/etc/yum.repos.d/epel.repo" ]; then
-        mv --backup=t /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.backup
-    fi
-}
-
-# Repo files install
-
-Repo_Install()
-{
-        BASE_REPO_URL="http://mirrors.example.com/repo/centos-"${CENTOS_VERSION_BY_RPM}".repo"
-        EPEL_REPO_URL="http://mirrors.example.com/repo/epel-"${CENTOS_VERSION_BY_RPM}".repo"
-        curl -sS -o /etc/yum.repos.d/CentOS-Base.repo $BASE_REPO_URL
-        curl -sS -o /etc/yum.repos.d/epel.repo $EPEL_REPO_URL
-}
-
-# Download and install repo files, including base and epel
-
-if [ $CENTOS_VERSION_BY_RPM = ${CENTOS_VERSION_BY_RELEASE%%.*} ]; then
-        Repo_Backup
-        Repo_Install
-        #echo "Repo files installed."
-else
-        Echo_Red "Error: CentOS version invalid."
-fi
-```
+<script src="https://gist.github.com/colinleefish/0087e06722cd4377dc46f635eb686ece.js"></script>
 
 我们将这个脚本就命名为 `sh`，放在 `/mirrors` 下。以后在配置的时候。只要执行
 
@@ -246,7 +174,7 @@ curl -sS http://mirrors.example.com/sh | bash
 
 就可以快速配置好 YUM 源了。
 
-### 2.3 插件的取舍
+#### 2.3 插件的取舍
 
 在我们使用了内部的镜像站之后，便可以禁用掉一些不再适用的 YUM 插件了。比如 `fastestmirror`：如果配置了 `mirrorlist`，这个插件会帮我们测算最快的镜像站。但我们此时已经无需再测速了，在 `/etc/yum/pluginconf.d/fastestmirror.conf` 中，将 `enabled` 改为 `0`即可。
 
