@@ -50,7 +50,7 @@ $ vagrant init
 
 #### 1.2 获取虚拟机模版：Box
 
-有了虚拟机的配置文件还不够，我们要告诉 Vagrant 使用哪一个虚拟机模版。以前我们会自己从头创建虚拟机，然后自己制作成模版；而在 Vagrant 的世界，模版名称叫做 “Box”。此外，Vagrant 还为我们提供了一个专门的[模版仓库](https://atlas.hashicorp.com/boxes/search)，存储一些权威机构或用户创建的模版供用户下载。
+有了虚拟机的配置文件还不够，我们要告诉 Vagrant 使用哪一个虚拟机模版。以前我们会自己从头创建虚拟机，然后自己制作成模版；而在 Vagrant 的世界，模版名称叫做 “Box”。此外，Vagrant 还有一个专门的[模版仓库](https://atlas.hashicorp.com/boxes/search)，提供一些权威机构或用户创建的模版供用户下载。
 
 让我们用 Vagrant 下载一份 CentOS 7.2 的 Box。这里我们选用了 [Bento 项目](https://github.com/chef/bento)提供的镜像。这个项目由 Chef 公司发起，旨在为 Vagrant 制作各种操作系统的标准 Box。
 
