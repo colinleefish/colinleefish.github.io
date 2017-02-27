@@ -30,7 +30,7 @@ Vagrant 是一套用 Ruby 编写的工具，它为用户提供了一种标准化
 
 #### 1.1 前期准备和安装
 
-我们在本次的快速上手中选择了 VirtualBox 作为后端虚拟化平台。因此，您首先需要安装最新版本的 VirtualBox 来搭配 Vagrant。请访问[这里](https://www.virtualbox.org/wiki/Downloads)下载最新版的 VirtualBox。
+Vagrant 将其支持的各种虚拟化平台称为 “Provider”。我们在本次的快速上手中选择了 VirtualBox 作为后端虚拟化平台。因此，您首先需要安装最新版本的 VirtualBox 来搭配 Vagrant。请访问[这里](https://www.virtualbox.org/wiki/Downloads)下载最新版的 VirtualBox。
 
 安装 Vagrant 的方法也很简单，在[此处](https://www.vagrantup.com/downloads.html)下载安装即可。需要注意的是，如果您使用的是 macOS 或 Linux，您可能希望使用 Brew 或者 YUM 等软件管理器来安装，然而官方并不推荐这样做：在第三方软件管理器的软件仓库中，Vagrant 可能版本较低，或者缺少依赖包。因此还是建议用户直接在官方网站上下载安装。
 
@@ -42,23 +42,52 @@ Vagrant 是一套用 Ruby 编写的工具，它为用户提供了一种标准化
 
 Vagrantfile 是用来描述虚拟机状态的主文件，其中包括虚拟机镜像、机器配置、网络配置、以及初始化脚本等。通过使用 `vagrant init` 命令，我们便可以创建出一份标准的 Vagrantfile。
 
-```
+```Shell
 $ mkdir vagrant_getting_started
 $ cd vagrant_getting_started
 $ vagrant init
 ```
 
+这样一来，我们便创建出 `Vagrantfile` 这个文件了。
+
 #### 1.2 获取虚拟机模版：Box
 
 有了虚拟机的配置文件还不够，我们要告诉 Vagrant 使用哪一个虚拟机模版。以前我们会自己从头创建虚拟机，然后自己制作成模版；而在 Vagrant 的世界，模版名称叫做 “Box”。此外，Vagrant 还有一个专门的[模版仓库](https://atlas.hashicorp.com/boxes/search)，提供一些权威机构或用户创建的模版供用户下载。
 
-让我们用 Vagrant 下载一份 CentOS 7.2 的 Box。这里我们选用了 [Bento 项目](https://github.com/chef/bento)提供的镜像。这个项目由 Chef 公司发起，旨在为 Vagrant 制作各种操作系统的标准 Box。
+让我们用 Vagrant 下载一份 CentOS 7.3 的 Box。这里我们选用了 [Bento 项目](https://github.com/chef/bento)提供的镜像。这个项目由 Chef 公司发起，旨在为 Vagrant 制作各种操作系统的标准 Box。
 
 ```
-vagrant box add bento/centos-7.2
+vagrant box add bento/centos-7.3
+```
+
+>首次下载时间较长。在国内，速度可能会比较慢。如果有搭梯子的方法，建议各位在 Shell 中使用 HTTP 代理下载。
+
+下载完成之后，这份 CentOS 7.3 的 Box 会被保存在 `~/.vagrant.d/boxes/bento-VAGRANTSLASH-centos-7.3`中。再继续往下寻找，会找到`.vmdk`格式的虚拟机文件。这就是我们需要的虚拟机模版了。
+
+Vagrant Box 的命名规则为“用户名/项目名”，比如 `bento/centos-7.3`，和 Github 的风格很像。
+
+打开我们创建的“Vagrantfile”文件，告诉 Vagrant 我们要使用刚刚下载的 `bento/centos-7.3`。
+
+```Ruby
+Vagrant.configure("2") do |config|
+  config.vm.box = "bento/centos-7.3"
+end
+```
+
+如果我们在这里填了一个没有预先下载好的 Box 名称，Vagrant 会先去官方的 Box 库将其下载下来，保存在上面提到的目录中。
+
+Box 还支持版本标记，如果我们希望使用某一个 Box 的特定版本，我们也可以在 Vagrantfile 中指定。例如：
+
+```Ruby
+Vagrant.configure("2") do |config|
+  config.vm.box = "hashicorp/precise64"
+  config.vm.box_version = "2.3.1"
+end
 ```
 
 #### 1.3 启动虚拟机以及使用 SSH 连接
+
+现在我们
 
 #### 1.4 
 
