@@ -18,7 +18,7 @@ excerpt: Vagrant 能够让用户以一种可定义、可分享的方式来创建
 
 Vagrant 是一套用 Ruby 编写的工具，它为用户提供了一种标准化、可定义、可分享的虚拟化平台使用模式。使用 Vagrant，用户可以使用文本文件来“定义”一个虚拟机，快速创建出自己想要的环境，还可以将其分享给其他人；此外，Vagrant 还支持多款虚拟化平台，VMware、Virtualbox、AWS 甚至是 Docker 都可以，用户再也不需要为对接多个虚拟化平台而犯愁了。
 
-本文便旨在向读者介绍性感的 Vagrant，带领读者进行 Vagrant 快速上手，然后以搭建一台 ELK 服务器的完整案例来展示 Vagrant 的便捷和强大。
+本文便旨在向读者介绍性感的 Vagrant，带领读者进行 Vagrant 快速上手。这个过程中还会用其搭建一台 ELK 服务器，来展示 Vagrant 的便捷和强大。
 
 部分操作步骤和脚本来自[官方文档](https://www.vagrantup.com/docs/)，下文不会单独指出。
 
