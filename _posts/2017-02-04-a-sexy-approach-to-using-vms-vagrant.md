@@ -127,7 +127,7 @@ Vagrant 还提供了其他的同步方法，包括 rsync，NFS 等等。但这�
 
 ### 6. 网络
 
-Vagrant 可以帮助我们配置端口映射。比如我们刚刚使用的 `$ vagrant ssh` 命令，实际上连接的也是我们宿主机的 2222 端口，只是由 Vagrant 操纵 VirtualBox 将虚拟机的 22 端口映射了过来而已。
+Vagrant 可以帮助我们配置端口映射。比如我们刚刚使用的 `vagrant ssh` 命令，实际上连接的也是我们宿主机的 2222 端口，只是由 Vagrant 操纵 VirtualBox 将虚拟机的 22 端口映射了过来而已。
 
 此外，我们还可以在 Vagrantfile 中自行配置希望映射的端口，写法也非常简单：
 
@@ -178,7 +178,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-然后我们便可以执行 `$ vagrant up` 了。在正常显示虚拟机创建过程提示后，将会显示的 Ansible 执行过程。
+然后我们便可以执行 `vagrant up` 了。在正常显示虚拟机创建过程提示后，将会显示的 Ansible 执行过程。
 
 因为要下载的内容比较多，安装时间可能会比较长。在成功执行完成 Ansible Playbook 之后，一个完整安装了 ELK 环境的虚拟机便创建完成了！
 
