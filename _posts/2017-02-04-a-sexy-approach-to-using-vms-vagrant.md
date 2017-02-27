@@ -156,6 +156,8 @@ end
 ![VirtualBox 的网络配置，图示中显示的是“Host-only network”](http://i.imgur.com/QSG0eDd.png)
 *VirtualBox 的网络配置，图示中显示的是“Host-only network”*
 
+
+
 ### 7. 系统初始化
 
 如果 Vagrant 仅能做到如此，对于解放生产力来说还是不够的。因此 Vagrant 内置了一套系统初始化功能，能够让用户在创建虚拟机时便将初始化工作一并完成。这套功能在 Vagrant 中被称为 “Provision”。
@@ -211,7 +213,7 @@ $ vagrant share
 
 如果你的虚拟机中的 80 端口正在提供 HTTP 服务，上面的链接便可以直接访问到你的网站。
 
-如果你希望朋友通过 SSH 连接到你的服务器，在共享命令中加入 `--share` 参数即可。
+如果你希望朋友通过 SSH 连接到你的服务器，在共享命令中加入 `--ssh` 参数即可。
 
 ```
 $ vagrant share --ssh
