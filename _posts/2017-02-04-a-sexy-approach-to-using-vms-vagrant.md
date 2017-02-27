@@ -57,10 +57,10 @@ $ vagrant init
 让我们用 Vagrant 下载一份 CentOS 7.3 的 Box。这里我们选用了 [Bento 项目](https://github.com/chef/bento)提供的镜像。这个项目由 Chef 公司发起，旨在为 Vagrant 制作各种操作系统的标准 Box。
 
 ```
-vagrant box add bento/centos-7.3
+$ vagrant box add bento/centos-7.3
 ```
 
->首次下载时间较长。在国内，速度可能会比较慢。如果有搭梯子的方法，建议各位在 Shell 中使用 HTTP 代理下载。
+首次下载时间较长。在国内，速度可能会比较慢。如果有搭梯子的方法，建议各位在 Shell 中使用 HTTP 代理下载。
 
 下载完成之后，这份 CentOS 7.3 的 Box 会被保存在 `~/.vagrant.d/boxes/bento-VAGRANTSLASH-centos-7.3`中。再继续往下寻找，会找到`.vmdk`格式的虚拟机文件。这就是我们需要的虚拟机模版了。
 
@@ -80,14 +80,44 @@ Box 还支持版本标记，如果我们希望使用某一个 Box 的特定版�
 
 ```Ruby
 Vagrant.configure("2") do |config|
-  config.vm.box = "hashicorp/precise64"
+  config.vm.box = "bento/centos-7.3"
   config.vm.box_version = "2.3.1"
 end
 ```
 
 #### 1.3 启动虚拟机以及使用 SSH 连接
 
-现在我们
+接下来我们便可以启动虚拟机了。
+
+```
+$ vagrant up
+```
+
+这个过程中完全不需要打开 Virtualbox，Vagrant 会自己去调用 Virtualbox，完成所有创建的工作。
+
+创建完成之后，我们可以通过 Vagrant 提供的 SSH 直接连接到服务器中，Vagrant 已帮我们配置好端口映射和密钥，非常方便。
+
+```
+$ vagrant ssh
+```
+
+按照平时的方式退出 SSH 便可退回到原来的 Shell。
+
+如果希望将这台服务器关机，可以执行：
+
+```
+$ vagrant halt
+```
+
+在现在的这个目录下再次执行 `vagrant up` 即可将其重新开启。
+
+如果希望删除这台虚拟机，也非常方便：
+
+```
+$ vagrant destroy
+```
+
+此时，这台虚拟机便会被删除。但是，我们使用过的 Box 并不会被删除掉。它还会保存在 `~/.vagrant.d` 中，以便我们再次使用。如果需要删除某一个 Box，可以使用 `vagrant box remove` 命令，后接 Box 名称即可。
 
 #### 1.4 
 
