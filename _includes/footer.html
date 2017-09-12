@@ -1,31 +1,6 @@
-<footer role="contentinfo" class='post-footer'>
-    <div class="inner">
-        <div class="vcard">
-          <a href="{{ site.baseurl }}/feed.xml" id="btn_feed" class="btn" title="Feed" target="_blank">
-                <span aria-hidden="true" data-icon=")"></span>
-                <strong>Feed</strong>
-            </a>
-
-            {% if site.logo %}
-            <a href="{{ site.url }}" class="photo">
-              <span style="background-image: url('{{ site.baseurl }}/assets/images/{{ site.logo }}');">
-                <img src="{{ site.baseurl }}/assets/images/{{ site.logo }}" alt="{{ site.title }}"/>
-              </span>
-            </a>
-            {% endif %}
-
-            <div class="details">
-                <h4><a href="{{ site.baseurl }}" class="url n">{{ site.author }}</a></h4>
-
-                <a href="{{ site.baseurl | prepend: site.url }}" class="js-remove-domain-schema">{{ site.url }}{{ site.baseurl }}</a><br>
-                <span>Using <a href="https://jekyllrb.com">Jekyll</a> @ <a href="https://pages.github.io/">Github</a></span><br>
-                <span>Based on <a href='https://github.com/vormwald/joon'>Joon</a> & <a href='https://source.unsplash.com/random'>Unsplash</a></span><br>
-            </div>
-        </div>
-        <div id="user_bio">
-            <div class="inner">
-                {{ site.description }}
-            </div>
-        </div>
-    </div>
+<footer class="footer">
+  {% for item in site.data.settings.social %}
+    <a href="{{ item.link }}" target="_blank"><i class="fa fa-{{ item.icon }}" aria-hidden="true"></i></a>
+  {% endfor %}
+  <div class="post-date"><a href="{{ site.github.url }}/menu/about.html">{{ site.data.settings.title }}</a></div>
 </footer>

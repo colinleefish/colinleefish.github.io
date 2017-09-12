@@ -1,28 +1,17 @@
-# Site settings
-title: "Virginia Jean"
-logo: logo-V.png # image from https://www.flickr.com/photos/lwr/5496279831/in/set-72157594159055823
-email: colinleefish@gmail.com
-description: > # this means to ignore newlines until "url:"
-  李广慧是一位Linux系统管理员，毕业于东北财经大学，文学学士。现居上海，供职于德邦物流。
-  “Virginia Jean”是他的技术博客，记录Linux、Python等等IT方面的学习内容。
-  博客名源于电影《一切尽失》，是主人公赖以生存的小船。<br />
-  WeChat: colinleefish
-url: "https://v.colinlee.fish" # the base hostname & protocol for your site
-baseurl: "" # the subpath of your site, e.g. /blog/
+# Site Settings
 
-# The author's (or owner's) name. Will show in footer.
-author:  李广慧
-
-# Random Unsplash Pics
-unsplash_source: "https://source.unsplash.com/"
-
-permalink: /posts/:title.html
-paginate: 7
+paginate:            5
 
 # Build settings
-markdown: kramdown
-highlighter: rouge
+markdown:            kramdown
+highlighter:         rouge
+permalink:           /posts/:title.html
+plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed]
 
-gems:
-  - jekyll-sitemap
-  - jekyll-paginate
+# Customise feed settings (uncommenting following two fields to customise feed title and description)
+#title:		     "Lagrange-Custom"
+#description:	     "a minimalist Jekyll theme-Custom"
+
+# RSS 2.0 can be used instead of Atom by uncommenting following two lines
+#feed:
+#   path:	     rss-feed.xml

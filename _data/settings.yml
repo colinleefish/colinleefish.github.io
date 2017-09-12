@@ -1,0 +1,26 @@
+title:  Virginia Jean
+tagline:
+
+# Authors documented under _data
+
+# Change to true for Disqus comments
+disqus:
+  comments: true
+  disqus_shortname: 'colinleefish'
+
+google-ID: 'UA-80213386-1'
+
+wechat-image: 'https://i.imgur.com/NBcRwm9t.jpg'
+
+menu:
+- {name: 'writing', url: 'writing.html'}
+- {name: 'about', url: 'about.html'}
+
+social:
+- {icon: 'github', link: 'https://www.github.com/colinleefish'}
+- {icon: 'instagram', link: 'https://instagram.com/colinleefish'}
+- {icon: 'linkedin', link: 'http://www.linkedin.com/in/colinleefish'}
+- {icon: 'envelope', link: 'mailto:colinleefish@gmail.com'}
+- {icon: 'weixin', link: '/menu/about.html'}
+
+# Available social icons are powered by Font Awesome, so you can use any icon that they offer

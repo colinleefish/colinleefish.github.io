@@ -1,33 +1,35 @@
 <head>
-  {% comment %} Document Settings {% endcomment %}
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  {% comment %} Page Meta {% endcomment %}
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <title>
+    {% if page.title == "Home" %}
+      {{ site.data.settings.title }}
+      {% if site.data.settings.tagline %}
+       | {{ site.data.settings.tagline }}
+      {% endif %}
+    {% else %}
+      {{ page.title }} | {{ site.data.settings.title }}
+    {% endif %}
+  </title>
 
-  <meta name="HandheldFriendly" content="True">
-  <meta name="viewport" content="width=device-width initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Bing site verification -->
-  <meta name="msvalidate.01" content="6F82714A746737EA7F07566BB6B2E3CB" />
-  <!-- Baidu site verification -->
-  <meta name="baidu-site-verification" content="2QvRtsvNun" />
-  <!-- Google site verification -->
-  <meta name="google-site-verification" content="dPrEeUdvffHBTu8o3-q0lzhykGud8Acls24Rz0tOkmU" />
-  <meta name="google-site-verification" content="rgR5E8KgtR3RoHhBWqHfaf4j8id7EyoObJSutKwC1e8" />
-  <link rel="shortcut icon" href="{{ asset "favicon.ico" }}">
+  <link rel="stylesheet" href="{{ site.github.url }}/assets/css/main.css">
+  <link rel="stylesheet" href="{{ site.github.url }}/assets/css/syntax.css">
+  <!-- RSS-v2.0
+  <link href="{{ site.github.url }}/feed.xml" type="application/rss+xml" rel="alternate" title="{{ site.data.settings.title }} | {{ site.data.settings.tagline }}"/>
+  //-->
 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quattrocento+Sans">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 
-  {% comment %} Styles n Scripts {% endcomment %}
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:400,700,400italic,700italic|Open+Sans:400italic,700italic,700,400">
-  <link rel="stylesheet" href="{{ "/css/screen.css" | prepend: site.baseurl }}">
+  <script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
 
-  {% comment %} Additional header setup from Jekyll {% endcomment %}
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+  <!-- {% include google-analytics.html %} -->
+  <!-- Use Atom -->
+  {% feed_meta %}
 
-  <script type="text/javascript" src="{{ '/assets/javascripts/jquery-2.1.4.min.js' | prepend: site.baseurl }}"></script>
-  <script type="text/javascript" src="{{ '/assets/javascripts/baidu-stat.js' | prepend: site.baseurl }}"></script>
 </head>
