@@ -31,7 +31,7 @@ excerpt: 这是一篇在 CentOS 7 上快速搭建 OpenLDAP 的文档，主要目
 ### 2. 安装 OpenLDAP 服务端，设置数据库配置文件，启动 OpenLDAP 服务
 
 ```
-[root@ldap ~]# yum -y openldap-servers openldap-clients
+[root@ldap ~]# yum -y install openldap-servers openldap-clients
 [root@ldap ~]# cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG
 [root@ldap ~]# chown ldap.ldap /var/lib/ldap/DB_CONFIG
 [root@ldap ~]# systemctl start slapd
