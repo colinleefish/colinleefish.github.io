@@ -20,7 +20,7 @@ excerpt: 搭建个镜像站，再不怕打补丁。
 
 #### 1.1 初识公共镜像站
 
-在 CentOS 的官网上，可以找到所有各个镜像站的源头，也就是最权威的官方站点：[http://mirror.deppon.com](http://mirror.deppon.com)，里面保存了 CentOS 各个版本的镜像文件和 rpm 包。但是，世界上绝大多数的镜像站，同步的都是这个官方站点的一个子目录：[http://mirror.depon.com/centos](http://mirror.deppon.com/centos)。这个“centos”子目录有一个特点，就是只提供了各个大版本下面最新的镜像文件和最新的 rpm 包，比如当前的 5.11，6.8 和 7.2。旧版本的文件夹已经空了。如果需要下载旧版本的镜像文件，则需要去另外一个地方：[http://vault.centos.org](http://vault.centos.org)。这里面将各个版本的 CentOS 镜像都做了归档，可以通过链接和种子的方式下载到。
+在 CentOS 的官网上，可以找到所有各个镜像站的源头，也就是最权威的官方站点：[http://mirror.centos.org](http://mirror.centos.org)，里面保存了 CentOS 各个版本的镜像文件和 rpm 包。但是，世界上绝大多数的镜像站，同步的都是这个官方站点的一个子目录：[http://mirror.centos.org/centos](http://mirror.deppon.org/centos)。这个“centos”子目录有一个特点，就是只提供了各个大版本下面最新的镜像文件和最新的 rpm 包，比如当前的 5.11，6.8 和 7.2。旧版本的文件夹已经空了。如果需要下载旧版本的镜像文件，则需要去另外一个地方：[http://vault.centos.org](http://vault.centos.org)。这里面将各个版本的 CentOS 镜像都做了归档，可以通过链接和种子的方式下载到。
 
 虽然镜像有小版本之分，但 rpm 安装包则是大版本内通用的，比如你的系统版本是 CentOS 6.3，使用 CentOS 6 的最新镜像源是完全没有问题的，即便最新版本已经到了 6.8。因此通用的镜像站，已经完全能够满足日常更新的需要了。
 
