@@ -124,6 +124,10 @@ blockquote p {
   margin-bottom: 4rem;
 }
 
+.post-container h1 {
+  line-height: 2.4rem;
+}
+
 .posts {
   margin-bottom: 5rem;
   padding: 0px;
