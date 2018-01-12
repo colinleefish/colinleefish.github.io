@@ -203,3 +203,7 @@ PyCharm 也是以独立的项目来组织代码的。每个项目中，均可以
 ### 延伸阅读
 
 pyenv 是受到 rbenv 启发而产生的项目，后者主要解决了 Ruby 环境下的多版本隔离问题。pyenv 使用了一种叫做 Shim 的命令行黑科技。技术细节在这里。更多文档，可以访问该项目的 [Github Wiki](https://github.com/pyenv/pyenv/wiki)。
+
+### 后记（2018-01-12）
+
+在一次给朋友的 Mac 笔记本配置 pyenv 的过程中发现：当时使用 brew 下载的那个版本有点问题，始终无法安装新的 Python 版本。后来，删掉了 brew 的 pyenv，使用 pyenv 自带的安装工具（pyenv-installer）重新下载了之后，故障得以解决。
