@@ -219,6 +219,11 @@ success
 [root@ldap ~]# systemctl disable firewalld
 ```
 
+
+### 更多：
+
+有关双主同步的内容，请参阅：[《OpenLDAP 极速搭建：双主同步》]({% post_url 2018-01-21-openldap-speedy-tutorial-replication %})
+
 ---
 参考材料：
 
