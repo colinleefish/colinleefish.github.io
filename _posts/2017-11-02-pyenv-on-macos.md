@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "使用 pyenv 在 macOS 上创建多版本且能隔离的 Python 环境"
+title: "使用 pyenv 在 macOS 上创建多版本且能隔离的 Python 环境（本文部分内容已过时）"
 tags: pyenv,macos
 unsplash_id: gCTgP86MhNQ
-excerpt: pyenv 可以方便地让我们在同一台机器上创建多版本，且相互隔离的 Python 环境。这样一来，用户便可以轻松尝试多个 Python 版本，以及轻松切换多个开发环境。
+excerpt: （本文部分内容已过时。）pyenv 可以方便地让我们在同一台机器上创建多版本，且相互隔离的 Python 环境。这样一来，用户便可以轻松尝试多个 Python 版本，以及轻松切换多个开发环境。
 ---
 
 和众多 Linux 分发版本一样，macOS 中也自带了一份 Python 运行环境。打开命令行，直接键入 python 即可，触手可及。
@@ -207,3 +207,7 @@ pyenv 是受到 rbenv 启发而产生的项目，后者主要解决了 Ruby 环�
 ### 后记（2018-01-12）
 
 在一次给朋友的 Mac 笔记本配置 pyenv 的过程中发现：当时使用 brew 下载的那个版本有点问题，始终无法安装新的 Python 版本。后来，删掉了 brew 的 pyenv，使用 pyenv 自带的安装工具（pyenv-installer）重新下载了之后，故障得以解决。
+
+### 后记（2018-02-02）
+
+今天在一台新电脑上安装 pyenv 时发现：使用 `pyenv activate my_project` 之后可能依然无法正确切换到预期的版本。具体的原因暂不清楚，但本文中介绍的方法可能已经有错误，或者不再有效，请读者在使用时一定参照官方文档来使用。
